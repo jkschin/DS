@@ -1,6 +1,9 @@
 #include <opencv2/opencv.hpp>
 #include "NT.h"
 #include "StrCommon.h"
+#include <iostream>
+
+using namespace std;
 
 NT *_tt = NULL;
 
@@ -138,6 +141,7 @@ void Go() {
 		std::string path = root;
 		path += to6dStr(i);
 		path += ".jpg";
+		cout << path << endl;
 		cv::Mat mat = cv::imread(path);
 		CB(mat, i);
 	}
@@ -157,8 +161,8 @@ int main(int argc, char **argv){
 
 	//_imgDir = "e:/code/deep_sort-master/MOT16/tt/xyz/img1/";
 	//_rcFile = "e:/code/deep_sort-master/MOT16/tt/xyz/det/det.txt";
-	_imgDir = "/home/xyz/code1/xyz/img1/";
-	_rcFile = "/home/xyz/code1/xyz/det/det.txt";
+	_imgDir = "/media/jkschin/WD2TB/data/MOT16/data/test/MOT16-01/img1/";
+	_rcFile = "/media/jkschin/WD2TB/data/MOT16/labels/test/MOT16-01/det/det.txt";
 	//_rcFile = "/home/xyz/code/test/pp/FaceNumGetter/out/102.txt";
 
 

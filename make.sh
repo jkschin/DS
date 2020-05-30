@@ -18,10 +18,10 @@ BAZEL=`getbazel`
 
 
 
-IINCLUDE="-I/home/$USER/code/test/pp/opencvlib/include -I/usr/local/include -I/home/$USER/.cache/bazel/_bazel_$USER/$BAZEL/external/eigen_archive/Eigen -I/home/$USER/code1/tbb-2018_U1/include/tbb -I/home/$USER/code1/tbb-2018_U1/include"
+IINCLUDE="-I/home/$USER/cpplibs/opencv-3.4.7/build/include -I/usr/local/include -I/home/$USER/cpplibs/eigen-3.3.7/Eigen"
 
 
-LLIBPATH="-L/home/$USER/code/test/pp/opencvlib/lib -L/usr/local/lib -L/home/$USER/code1/DS/deepsort/FeatureGetter -L/home/$USER/code1/tbb-2018_U1/build/linux_intel64_gcc_cc5.4.0_libc2.17_kernel3.10.0_release "
+LLIBPATH="-L/home/$USER/cpplibs/opencv-3.4.7/build/lib -L/usr/local/lib -L/usr/local -L/home/$USER/code/DS/deepsort/FeatureGetter"
 
 rm DS -rf
 
@@ -39,7 +39,7 @@ function BTBB(){
 
 
 function BOPENMPHOG(){
-	LLIBS="-lopencv_corexyz -lopencv_imgprocxyz  -lopencv_highguixyz  -lboost_system -lglog -ltcmalloc"
+	LLIBS="-lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lboost_system -lglog -ltcmalloc"
 	g++ --std=c++14 -O3 -fopenmp -o DS $IINCLUDE $LLIBPATH  deepsort/munkres/munkres.cpp deepsort/munkres/adapters/adapter.cpp deepsort/munkres/adapters/boostmatrixadapter.cpp  NT.cpp fdsst/fdssttracker.cpp fdsst/fhog.cpp Main.cpp $LLIBS
 }
 
